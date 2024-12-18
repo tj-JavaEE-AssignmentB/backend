@@ -12,7 +12,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User implements Serializable {
-    private int id;
-
-    private String name;
+    private Integer userId;
+    private String nickname;
+    private String avatarUrl;
+    private String account;
+    private String passwordHash;
+    private String email;
+    private String status;
 }
