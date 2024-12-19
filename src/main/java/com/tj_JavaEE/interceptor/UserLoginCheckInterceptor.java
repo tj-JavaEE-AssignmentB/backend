@@ -31,6 +31,11 @@ public class UserLoginCheckInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        // 放行 OPTIONS 请求
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            return true;
+        }
+
         //打印所有请求头
 
         Enumeration<String> headerNames = request.getHeaderNames();
