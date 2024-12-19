@@ -16,7 +16,7 @@ public class User implements Serializable {
     private String nickname;
     private String avatarUrl;
     private String account;
-    private String passwordHash;
+    private String password;
     private String email;
     private String status;
 }
