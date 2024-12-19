@@ -6,16 +6,17 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
-
 @Mapper
-public interface UserMapper {
+public interface LoginMapper {
+
+    @Select("select * from user where account = #{account} and password_hash = #{password}")
+    User getByAccountAndPassword(User user);
+
 
     @Results({
             @Result(column = "password_hash",property = "password"),
     })
-    @Select("select * from user")
-    List<User> list();
-
+    @Select("select * from user where account = #{account}")
+    User findByAccount(User user);
 
 }
