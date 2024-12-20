@@ -17,9 +17,11 @@ public class UserLoginConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(userLoginCheckInterceptor)
                 //下方第一行不加注释是拦截所有请求，第二行不加注释是不拦截所有请求
-                //.addPathPatterns("/**")
-                .excludePathPatterns("/**")
+                .addPathPatterns("/**")
+                //.excludePathPatterns("/**")
                 .excludePathPatterns("/user/login")
+                .excludePathPatterns("/admin/login")
+                .excludePathPatterns("/admin/register")
                 .excludePathPatterns(HttpMethod.OPTIONS.name())
                 .excludePathPatterns("/user/register");
 
