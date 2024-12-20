@@ -17,4 +17,9 @@ public class PostServiceimpl implements PostService {
     public List<AuditPostInfo> auditPostInfoList() {
         return postMapper.auditPostInfoList();
     }
+
+    @Override
+    public void postStatusChange(Long postId, String status) {
+        postMapper.postStatusChange(postId,status);
+    }
 }

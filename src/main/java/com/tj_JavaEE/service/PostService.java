@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PostService {
     List<AuditPostInfo> auditPostInfoList();
+
+    void postStatusChange(Long postId, String status);
 }
