@@ -6,7 +6,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:mysql://localhost:3306/javaee_assignmentb
     username: root
-    password: HjH20040229
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
