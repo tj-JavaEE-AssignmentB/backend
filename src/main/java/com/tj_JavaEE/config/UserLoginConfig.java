@@ -20,10 +20,12 @@ public class UserLoginConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 //.excludePathPatterns("/**")
                 .excludePathPatterns("/user/login")
+                .excludePathPatterns("/identity")
                 .excludePathPatterns("/admin/login")
                 .excludePathPatterns("/admin/register")
                 .excludePathPatterns(HttpMethod.OPTIONS.name())
                 .excludePathPatterns("/user/register");
+
 
     }
 
