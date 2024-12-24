@@ -14,11 +14,6 @@ import java.util.List;
 public class HomeServiceimpl implements HomeService {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    @Autowired
     private HomeMapper homeMapper;
 
 

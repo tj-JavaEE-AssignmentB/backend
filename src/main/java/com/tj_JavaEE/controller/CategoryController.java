@@ -17,14 +17,14 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    /*@PostMapping("/categoryAdd")
+    @PostMapping("/categoryAdd")
     public ResponseEntity<Boolean> categoryAdd(CategoryAddInfo categoryAddInfo){
         System.out.println(categoryAddInfo.getCategoryName());
         System.out.println(categoryAddInfo.getDescription());
         System.out.println(categoryAddInfo.getImage().isEmpty());
         categoryService.categoryAdd(categoryAddInfo);
         return ResponseEntity.ok(true);
-    }*/
+    }
 
     @GetMapping
     public Result getAllCategory() {

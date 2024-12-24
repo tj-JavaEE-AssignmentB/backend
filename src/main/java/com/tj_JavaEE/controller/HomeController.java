@@ -29,9 +29,12 @@ public class HomeController {
         
         // 获取用户 token
         String token = request.getHeader("Authorization");
-        if (token != null && !token.isEmpty()) {
-            token = token.substring(7);
-            Claims claims = JwtUtils.parseJwt(token);
+        String jwt = token.substring(7);
+        Claims claims= JwtUtils.parseJwt(jwt);
+        String idt = claims.get("identity", String.class);
+
+
+        if (idt.equals( "user" )) {
             int userId = claims.get("userId", Integer.class);
             
             // 获取用户喜欢的帖子类别
