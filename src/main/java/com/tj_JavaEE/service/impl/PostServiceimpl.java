@@ -1,11 +1,13 @@
 package com.tj_JavaEE.service.impl;
 
+import com.tj_JavaEE.entity.Post;
 import com.tj_JavaEE.dto.AuditPostInfo;
 import com.tj_JavaEE.dto.Pst;
 import com.tj_JavaEE.mapper.PostMapper;
 import com.tj_JavaEE.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.tj_JavaEE.dto.CommentInfo;
 
 import java.util.List;
 
@@ -27,6 +29,21 @@ public class PostServiceimpl implements PostService {
     }
 
     @Override
+<<<<<<< HEAD
+    public List<Post> getPostsByAuthorId(Long authorId) {
+        return postMapper.selectPostsByAuthorId(authorId);
+    }
+
+    @Override
+    public List<AuditPostInfo> getFavoritePostsByUserId(Long userId) {
+        return postMapper.selectFavoritePostsByUserId(userId);
+    }
+
+
+    @Override
+    public List<CommentInfo> getCommentsByCommenterId(Long commenterId) {
+        return postMapper.selectCommentsByCommenterId(commenterId);
+=======
     public Pst getPostById(Long postId) { return postMapper.getPst(postId); }
 
     @Override
@@ -46,5 +63,6 @@ public class PostServiceimpl implements PostService {
     public List<Pst> search(String keyword)
     {
         return searchServiceimpl.search(keyword);
+>>>>>>> 1dd3f0e4f0e11269eddaf56f9b219a369dc198c6
     }
 }
