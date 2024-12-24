@@ -24,6 +24,7 @@ public class CommentServiceimpl implements CommentService {
         comment.setContent(commentcontent.getContent());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime time = LocalDateTime.parse(commentcontent.getCommentTime(), formatter);
+        comment.setCommenterId((int) commentcontent.getCommenterId());
         comment.setCommentTime(time);
         comment.setPostId(commentcontent.getPostId());
         comment.setDislikeCount(0);
