@@ -38,6 +38,7 @@ public class PostServiceimpl implements PostService {
         pst.setAuthorAvatar(searchServiceimpl.searchUserAvatar(pst.getAuthorId()));
         postMapper.createPost(pst);
 
+        
 
     }
 
