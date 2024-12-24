@@ -1,8 +1,9 @@
 package com.tj_JavaEE.service.impl;
 
-import com.tj_JavaEE.dto.Category;
 import com.tj_JavaEE.dto.Pst;
 import com.tj_JavaEE.dto.CategoryAddInfo;
+import com.tj_JavaEE.entity.Category;
+import com.tj_JavaEE.mapper.CategoryAdminMapper;
 import com.tj_JavaEE.mapper.CategoryMapper;
 import com.tj_JavaEE.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import java.util.UUID;
 public class CategoryServiceimpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
+    @Autowired
+    private CategoryAdminMapper categoryAdminMapper;
 
     private static final String baseUrl = "/src/main/resources/static/";
 
@@ -38,14 +41,14 @@ public class CategoryServiceimpl implements CategoryService {
         }
 
         Category category=new Category();
-        category.name(categoryAddInfo.getCategoryName());
-        category.setdescription(categoryAddInfo.getDescription());
+        category.setCategoryName(categoryAddInfo.getCategoryName());
+        category.setCategoryDescription(categoryAddInfo.getDescription());
         category.setCategoryImageUrl(followUrl);
-        categoryMapper.insert(category);
+        categoryAdminMapper.insert(category);
     }
 
     @Override
-    public List<Category> getAllCategories(){
+    public List<com.tj_JavaEE.dto.Category> getAllCategories(){
         return categoryMapper.getAll();
     }
 
@@ -56,3 +59,4 @@ public class CategoryServiceimpl implements CategoryService {
 
 
 }
+
