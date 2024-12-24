@@ -21,7 +21,7 @@ public class CategoryServiceimpl implements CategoryService {
 
     private static final String baseUrl = "/src/main/resources/static/";
 
-    @Override
+    /*@Override
     public void categoryAdd(CategoryAddInfo categoryAddInfo) {
         String uniqueFileName = UUID.randomUUID().toString() + "_" + categoryAddInfo.getImage().getOriginalFilename();
         String followUrl = "pictures/category/"+uniqueFileName;
@@ -42,7 +42,7 @@ public class CategoryServiceimpl implements CategoryService {
         category.setdescription(categoryAddInfo.getDescription());
         category.setCategoryImageUrl(followUrl);
         categoryMapper.insert(category);
-    }
+    }*/
 
     @Override
     public List<Category> getAllCategories(){

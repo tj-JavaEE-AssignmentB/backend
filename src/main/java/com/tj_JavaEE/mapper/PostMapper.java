@@ -14,10 +14,10 @@ public interface PostMapper {
     @Update("UPDATE post SET status = #{status} WHERE post_id = #{postId}")
     void postStatusChange(@Param("postId") Long postId, @Param("status") String status);
 
-    @Select("select f.post_id as id , f.post_title as title , f.post_content as content , f.author_id as authorId , f.like_count as likes , f.dislike_count as dislikes , t.avatar_url as authorAvatar , t.nickname as authorName  from post f full outer join user t where f.post_id = #{postId} and t.status='actice'")
+    @Select("select f.post_id as id , f.post_title as title , f.post_content as content , f.author_id as authorId , f.like_count as likes , f.dislike_count as dislikes , t.avatar_url as authorAvatar , t.nickname as authorName  from post f inner join user t on t.user_id=f.author_id where f.post_id = #{postId} and t.status='actice'")
     Pst getPst(@Param("postId") Long postId);
 
 
-    @Insert("insert into post(post_title,post_content,author_id,publish_time,like_count,dislike_count,category_id) values(#{title},#{content},#{authorId},#{releaseTime},#{likes},#{dislikes},#{categoryId}")
+    @Insert("insert into post(post_title,post_content,author_id,publish_time,like_count,dislike_count,category_id) values(#{title},#{content},#{authorId},#{releaseTime},#{likes},#{dislikes},#{categoryId})")
     void createPost(Pst pst);
 }

@@ -12,5 +12,5 @@ public interface CategoryService {
     List<Category> getAllCategories();
 
     List<Pst> getPostsByCategory(long categoryId);
-    void categoryAdd(CategoryAddInfo categoryAddInfo);
+    /*void categoryAdd(CategoryAddInfo categoryAddInfo);*/
 }

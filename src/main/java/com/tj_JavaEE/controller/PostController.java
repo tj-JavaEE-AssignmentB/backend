@@ -56,8 +56,8 @@ public class PostController {
         postService.createPost(pst);
     }
 
-    @GetMapping
-    public Result getPostList(@RequestParam String keyword){
+    @GetMapping("/search/{keyword}")
+    public Result getPostList(@PathVariable String keyword){
         return Result.success(postService.search(keyword));
     }
 }
