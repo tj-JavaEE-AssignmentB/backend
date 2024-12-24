@@ -2,6 +2,8 @@ package com.tj_JavaEE.mapper;
 
 import com.tj_JavaEE.dto.Category;
 import com.tj_JavaEE.dto.pst;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tj_JavaEE.entity.Category;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
