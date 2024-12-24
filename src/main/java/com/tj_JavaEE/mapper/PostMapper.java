@@ -2,11 +2,16 @@ package com.tj_JavaEE.mapper;
 
 import com.tj_JavaEE.entity.Post;
 import com.tj_JavaEE.dto.AuditPostInfo;
+<<<<<<< HEAD
 import com.tj_JavaEE.dto.CommentInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+=======
+import com.tj_JavaEE.dto.Pst;
+import org.apache.ibatis.annotations.*;
+>>>>>>> 1dd3f0e4f0e11269eddaf56f9b219a369dc198c6
 
 import java.util.List;
 
@@ -18,6 +23,7 @@ public interface PostMapper {
     @Update("UPDATE post SET status = #{status} WHERE post_id = #{postId}")
     void postStatusChange(@Param("postId") Long postId, @Param("status") String status);
 
+<<<<<<< HEAD
     @Select("SELECT post_id AS postId, post_title AS postTitle, category_id AS categoryId, publish_time AS publishTime, post_content AS postContent, author_id AS authorId, like_count AS likeCount, dislike_count AS dislikeCount, status FROM post WHERE author_id = #{authorId}")
     List<Post> selectPostsByAuthorId(@Param("authorId") long authorId);
 
@@ -36,4 +42,12 @@ public interface PostMapper {
             "WHERE c.commenter_id = #{commenterId}")
     List<CommentInfo> selectCommentsByCommenterId(@Param("commenterId") long commenterId);
 
+=======
+    @Select("select f.post_id as id , f.post_title as title , f.post_content as content , f.author_id as authorId , f.like_count as likes , f.dislike_count as dislikes , t.avatar_url as authorAvatar , t.nickname as authorName  from post f full outer join user t where f.post_id = #{postId} and t.status='actice'")
+    Pst getPst(@Param("postId") Long postId);
+
+
+    @Insert("insert into post(post_title,post_content,author_id,publish_time,like_count,dislike_count,category_id) values(#{title},#{content},#{authorId},#{releaseTime},#{likes},#{dislikes},#{categoryId}")
+    void createPost(Pst pst);
+>>>>>>> 1dd3f0e4f0e11269eddaf56f9b219a369dc198c6
 }
