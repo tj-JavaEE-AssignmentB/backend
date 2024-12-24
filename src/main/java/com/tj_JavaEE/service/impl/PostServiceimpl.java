@@ -1,6 +1,7 @@
 package com.tj_JavaEE.service.impl;
 
 import com.tj_JavaEE.dto.AuditPostInfo;
+import com.tj_JavaEE.dto.pst;
 import com.tj_JavaEE.mapper.PostMapper;
 import com.tj_JavaEE.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,7 @@ public class PostServiceimpl implements PostService {
     public void postStatusChange(Long postId, String status) {
         postMapper.postStatusChange(postId,status);
     }
+
+    @Override
+    public pst getPostById(Long postId) { return postMapper.getPst(postId); }
 }

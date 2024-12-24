@@ -24,7 +24,8 @@ public class UserLoginConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/admin/login")
                 .excludePathPatterns("/admin/register")
                 .excludePathPatterns(HttpMethod.OPTIONS.name())
-                .excludePathPatterns("/user/register");
+                .excludePathPatterns("/user/register")
+                .excludePathPatterns("/comment/{postId}");
 
 
     }
