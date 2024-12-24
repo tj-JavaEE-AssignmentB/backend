@@ -1,5 +1,7 @@
 package com.tj_JavaEE.controller;
 
+
+import com.tj_JavaEE.entity.Post;
 import com.tj_JavaEE.dto.AuditPostInfo;
 import com.tj_JavaEE.dto.PostId;
 import com.tj_JavaEE.dto.Pst;
@@ -10,7 +12,7 @@ import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.tj_JavaEE.dto.CommentInfo;
 import java.util.List;
 
 @RestController
@@ -39,6 +41,23 @@ public class PostController {
         return ResponseEntity.ok(true);
     }
 
+<<<<<<< HEAD
+    @GetMapping("/author/{authorId}")
+    public List<Post> getPostsByAuthorId(@PathVariable Long authorId) {
+        return postService.getPostsByAuthorId(authorId);
+    }
+
+    @GetMapping("/favorites/{userId}")
+    public ResponseEntity<List<AuditPostInfo>> getFavoritePostsByUserId(@PathVariable Long userId) {
+        List<AuditPostInfo> favoritePosts = postService.getFavoritePostsByUserId(userId);
+        return ResponseEntity.ok(favoritePosts);
+    }
+
+    @GetMapping("/comments/{commenterId}")
+    public ResponseEntity<List<CommentInfo>> getCommentsByCommenterId(@PathVariable Long commenterId) {
+        List<CommentInfo> comments = postService.getCommentsByCommenterId(commenterId);
+        return ResponseEntity.ok(comments);
+=======
     @GetMapping("/{postId}")
     public Result getPost(@PathVariable long postId){
         Result result = Result.success(postService.getPostById(postId));
@@ -59,5 +78,6 @@ public class PostController {
     @GetMapping("/search/{keyword}")
     public Result getPostList(@PathVariable String keyword){
         return Result.success(postService.search(keyword));
+>>>>>>> 1dd3f0e4f0e11269eddaf56f9b219a369dc198c6
     }
 }

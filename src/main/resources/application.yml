@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost:3306/javaee_assignmentb
+    url: jdbc:mysql://localhost:3306/java
     username: root
-    password: 1234
+    password: hmy299792458
     driver-class-name: com.mysql.cj.jdbc.Driver
   servlet:
     multipart:
