@@ -18,7 +18,7 @@ public interface CommentMapper {
     public void addComment(Comment comment);
 
 
-    @Select("select t.nickname as authorName , t.user_id as authorId , t.avatar_url as authorAvatar , f.comment_id as id, f.publish_time as releasetime, f.comment_content as content , f.like_count as likes , f.dislike_count as dislikes  from comment f full outer join user t where f.post_id = #{ postId }")
+    @Select("select t.nickname as authorName , t.user_id as authorId , t.avatar_url as authorAvatar , f.comment_id as id, f.publish_time as releasetime, f.comment_content as content , f.like_count as likes , f.dislike_count as dislikes  from comment f inner join user t on f.commenter_id= t.user_id where f.post_id = #{ postId }")
     public List<Cmt> getCommentsByPostId(long postId);
 
 }
