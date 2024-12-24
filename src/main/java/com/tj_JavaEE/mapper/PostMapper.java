@@ -1,11 +1,8 @@
 package com.tj_JavaEE.mapper;
 
 import com.tj_JavaEE.dto.AuditPostInfo;
-import com.tj_JavaEE.dto.pst;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import com.tj_JavaEE.dto.Pst;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -18,5 +15,9 @@ public interface PostMapper {
     void postStatusChange(@Param("postId") Long postId, @Param("status") String status);
 
     @Select("select f.post_id as id , f.post_title as title , f.post_content as content , f.author_id as authorId , f.like_count as likes , f.dislike_count as dislikes , t.avatar_url as authorAvatar , t.nickname as authorName  from post f full outer join user t where f.post_id = #{postId} and t.status='actice'")
-    pst getPst(@Param("postId") Long postId);
+    Pst getPst(@Param("postId") Long postId);
+
+
+    @Insert("insert into post(post_title,post_content,author_id,publish_time,like_count,dislike_count,category_id) values(#{title},#{content},#{authorId},#{releaseTime},#{likes},#{dislikes},#{categoryId}")
+    void createPost(Pst pst);
 }

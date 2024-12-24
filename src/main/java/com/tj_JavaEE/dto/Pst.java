@@ -9,14 +9,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class pst {
+public class Pst {
     private int id;
     private String title;
     private String content;
     private int authorId;
     private String authorName;
     private String authorAvatar;
-    private String createTime;
+    private String releaseTime;
     private int likes;
     private int dislikes;
+    private int categoryId;
 }

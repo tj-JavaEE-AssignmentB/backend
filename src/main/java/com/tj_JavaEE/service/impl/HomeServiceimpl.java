@@ -1,12 +1,10 @@
 package com.tj_JavaEE.service.impl;
 
-import com.tj_JavaEE.dto.pst;
+import com.tj_JavaEE.dto.Pst;
 import com.tj_JavaEE.mapper.HomeMapper;
 import com.tj_JavaEE.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +29,7 @@ public class HomeServiceimpl implements HomeService {
     }
 
     @Override
-    public List<pst> getPostsByCategories(List<Long> categories, int limit) {
+    public List<Pst> getPostsByCategories(List<Long> categories, int limit) {
 
         return homeMapper.getPostsByCategories(categories,limit);
         // 实现查询逻辑并返回pst对象列表
@@ -39,7 +37,7 @@ public class HomeServiceimpl implements HomeService {
     }
 
     @Override
-    public List<pst> getRandomPosts(int limit, List<Long> excludePostIds) {
+    public List<Pst> getRandomPosts(int limit, List<Long> excludePostIds) {
 
 
         // 实现查询逻辑并返回pst对象列表

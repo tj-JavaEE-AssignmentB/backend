@@ -1,15 +1,13 @@
 package com.tj_JavaEE.controller;
 
-import com.tj_JavaEE.dto.pst;
+import com.tj_JavaEE.dto.Pst;
 import com.tj_JavaEE.entity.Result;
 import com.tj_JavaEE.service.HomeService;
 import com.tj_JavaEE.util.JwtUtils;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,17 +39,17 @@ public class HomeController {
             
             if (!likedCategories.isEmpty()) {
                 // 优先获取用户喜欢类别的帖子
-                List<pst> recommendedPosts = homeService.getPostsByCategories(likedCategories, RECOMMEND_COUNT);
+                List<Pst> recommendedPosts = homeService.getPostsByCategories(likedCategories, RECOMMEND_COUNT);
                 
                 // 如果推荐的帖子不够10个，随机补充
                 if (recommendedPosts.size() < RECOMMEND_COUNT) {
                     int remainingCount = RECOMMEND_COUNT - recommendedPosts.size();
                     List<Long> existingPostIds = recommendedPosts.stream()
-                        .map(pst::getId)
+                        .map(Pst::getId)
                         .map(Integer::longValue)
                         .collect(Collectors.toList());
                     
-                    List<pst> randomPosts = homeService.getRandomPosts(remainingCount, existingPostIds);
+                    List<Pst> randomPosts = homeService.getRandomPosts(remainingCount, existingPostIds);
                     recommendedPosts.addAll(randomPosts);
                 }
                 
