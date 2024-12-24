@@ -14,6 +14,12 @@ public interface PostService {
 
     void createPost(Pst pst);
 
+    void likePost(int userId, Long postId);
+
+    void reportPost(Long postId,int userId);
+
+    void deletePost(Long postId);
+
 
     List<Pst> search(String keyword);
 

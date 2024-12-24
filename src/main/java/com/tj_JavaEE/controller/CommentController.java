@@ -37,4 +37,22 @@ public class CommentController {
 
     }
 
+    @PostMapping("/{commentId}/like")
+    public Result likeComment(@PathVariable long commentId) {
+        commentService.likeComment(commentId);
+        return Result.success();
+    }
+
+    @PostMapping("/{commentId}/dislike")
+    public Result dislikeComment(@PathVariable long commentId) {
+        commentService.dislikeComment(commentId);
+        return Result.success();
+    }
+
+    @DeleteMapping("/{commentId}/")
+    public Result deleteComment(@PathVariable long commentId) {
+        commentService.deleteComment(commentId);
+        return Result.success();
+    }
+
 }

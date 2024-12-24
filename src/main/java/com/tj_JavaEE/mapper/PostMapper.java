@@ -20,4 +20,20 @@ public interface PostMapper {
 
     @Insert("insert into post(post_title,post_content,author_id,publish_time,like_count,dislike_count,category_id) values(#{title},#{content},#{authorId},#{releaseTime},#{likes},#{dislikes},#{categoryId})")
     void createPost(Pst pst);
+
+    @Delete("delete from post where post_id = #{postId}")
+    public void deletePost(@Param("postId") long postId);
+
+    @Insert("insert into user_preference(user_id,preferred_category_id) values (#{userId},#{categoryId})")
+    public void addlike(@Param("userId") int userId, @Param("categoryId") int categoryId);
+
+    @Select("select category_id from post where post_id = #{postId}")
+    public int searchCategory(@Param("postId") long postId);
+
+    @Update("UPDATE post set like_count = like_count + 1 where post_id = #{postId}")
+    public void likePost(@Param("postId") long postId);
+
+    @Insert("insert into post_report(report_reason,reporter_id,reported_post_id,report_time) values (#{reportReason},#{userId},#{postId},#{reportTime})")
+    public void reportPost(@Param("postId") long postId,@Param("userId") int userId,@Param("reportReason") String rr,@Param("reportTime") String Date);
+
 }

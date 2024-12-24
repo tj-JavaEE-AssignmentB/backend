@@ -37,6 +37,11 @@ public class CommentServiceimpl implements CommentService {
         return commentMapper.getCommentsByPostId(postId);
     }
 
-
+    @Override
+    public void likeComment(long commentId){  commentMapper.likeComment(commentId);}
+    @Override
+    public void dislikeComment(long commentId){  commentMapper.dislikeComment(commentId);}
+    @Override
+    public void deleteComment(long commentId){  commentMapper.deleteComment(commentId);}
 
 }

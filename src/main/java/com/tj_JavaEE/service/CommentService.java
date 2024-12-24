@@ -12,4 +12,10 @@ public interface CommentService {
     public void addComment(Commentcontent commentcontent);
 
     public List<Cmt> getCommentsByPostId(long postId);
+
+    public void likeComment(long commentId);
+
+    public void dislikeComment(long commentId);
+
+    public void deleteComment(long commentId);
 }

@@ -59,4 +59,29 @@ public class PostController {
     public Result getPostList(@PathVariable String keyword){
         return Result.success(postService.search(keyword));
     }
+
+    @DeleteMapping("/{postId}")
+    public Result deletePost(@PathVariable long postId){
+        postService.deletePost(postId);
+        return Result.success();
+    }
+
+    @PostMapping("/{postId}/like")
+    public Result likePost(@PathVariable long postId,@RequestHeader("Authorization") String token){
+        token = token.substring(7);
+        Claims claims = JwtUtils.parseJwt(token);
+        int userId = claims.get("userId",Integer.class);
+        postService.likePost(userId,postId);
+
+        return Result.success();
+    }
+
+    @PostMapping("/{postId}/report")
+    public Result reportPost(@PathVariable long postId,@RequestHeader("Authorization") String token){
+        token = token.substring(7);
+        Claims claims = JwtUtils.parseJwt(token);
+        int userId = claims.get("userId",Integer.class);
+        postService.reportPost(postId,userId);
+        return Result.success();
+    }
 }
